@@ -38,5 +38,4 @@ export const teachers = [
             id: 4
         }]
     }
-    
 ]
