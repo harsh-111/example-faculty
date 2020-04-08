@@ -1,0 +1,23 @@
+<mat-accordion *ngIf="assignList?.length">
+    <div *ngFor="let teacher of assignList">
+        <mat-expansion-panel *ngIf="teacher?.assignedSubjects?.length"  (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Faculty Name : {{teacher.firstName}} {{teacher.lastName}}
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div>
+                <div>Assigned Subjects</div>
+                <mat-list>
+                    <mat-list-item *ngFor="let subject of teacher.assignedSubjects"> {{subject.name}}
+                        <mat-divider></mat-divider>
+                    </mat-list-item>
+                </mat-list>
+                <a (click)="updateSubjects(teacher)">Update Subject</a>
+            </div>
+        </mat-expansion-panel>
+    </div>
+</mat-accordion>
